@@ -8,6 +8,7 @@ int main()
 
     do
     {
+        choix=0;
         system("cls");
         Menu(1);
         Menu(2);
@@ -15,6 +16,7 @@ int main()
         system("cls");
         switch(choix)
         {
+
         //CONVERSION DECIMAL --> BINAIRE
         case 1:
             printf("\n***************************************************************");
@@ -90,10 +92,12 @@ int main()
             break;
         //CONVERSION BASE X --> DECIMAL
         case 4:
+          //  do{
             printf("\n***************************************************************");
             printf("\n *            CONVERSION BASE X  ====> DECIMAL               * ");
             printf("\n***************************************************************\n");
 
+            choix=0;
             Menu(3);
             scanf("%d",&choix);
             system("cls");
@@ -180,6 +184,7 @@ int main()
                 scanf("%d",&choix);
             };
             break;
+          //  }while()
         //CONVERSION OCTAL -->BINAIRE
         case 5:
             printf("\n***************************************************************");
