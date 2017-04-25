@@ -49,6 +49,19 @@ void Menu(int a)//"1"Fonction d'affichage
     }
 }
 //-----------------------------------------------------------------------------
+void recupCh(char chaine[])
+{
+int i=0;
+char Car;
+    do
+    {
+        Car=getchar();
+        chaine[i]=Car;
+        i++;
+    }while(Car!='\n');
+    chaine[i-1]='\0';
+}
+//-----------------------------------------------------------------------------
 int controleMenu3_4(int choix)//"2"Fonction qui permet de controler le 4e et le 5e menu dans le fonction d'affichage
 {
     if(choix!=1 && choix!=2 && choix!=3)
@@ -135,13 +148,13 @@ void afficheconvert(int T[],int taille )//"7"Fonction qui permet d'afficher les 
     int i;
     for(i=taille-1; i>=0; i--)
     {
-        if(T[i]==10)printf("%c",65);
+       /* if(T[i]==10)printf("%c",65);
         else if(T[i]==11)printf("%c",66);
         else if(T[i]==12)printf("%c",67);
         else if(T[i]==13)printf("%c",68);
         else if(T[i]==14)printf("%c",69);
         else if(T[i]==15)printf("%c",70);
-        else printf("%d",T[i]);
+        else*/ printf("%X",T[i]);
     }
 }
 //-----------------------------------------------------------------------------
@@ -155,6 +168,16 @@ void convertDecimalVersX(int nombre,int base)//"8"Fonction qui permet de convert
         i++;
     }
     afficheconvert(T,i);
+}
+//-----------------------------------------------------------------------------
+int puissance(float nombre, int puissance)
+{
+int i,s=1;
+    for(i=0;i<puissance;i++)
+    {
+        s=s*nombre;
+    }
+return s;
 }
 //-----------------------------------------------------------------------------
 int convertXversDecimal(char nombre[],int base,int a)//"9"Fonction qui permet de convertis un nombre de base X vers un nombre de base decimal
@@ -173,18 +196,17 @@ int convertXversDecimal(char nombre[],int base,int a)//"9"Fonction qui permet de
         else if(nombre[i]==70 || nombre[i]==102)j=15;
         else j=(nombre[i]-48);
         taille--;
-        conv+=j*pow(base,taille);
+        conv+=j*puissance(base,taille);
     }
     if(a==1)
         printf("%d",conv);
     else
         return conv;
 }
-
-
-
-int quitter(char ch[],int choix)
+//-----------------------------------------------------------------------------
+int quitter(char ch[])
 {
         if(ch[0]=='A' || ch[0]=='a'){return 48;}
+return 0;
 }
 //-----------------------------------------------------------------------------
